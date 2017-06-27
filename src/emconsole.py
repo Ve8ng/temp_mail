@@ -3,7 +3,7 @@
 
 import os
 import requests
-from beautifulsoup4 import BeautifulSoup
+from bs4 import BeautifulSoup
 
 
 def text(strings):
