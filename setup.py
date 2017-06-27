@@ -14,7 +14,7 @@ setup(
         name='EmConsole_py',
         version=__version__,
         author=__author__,
-        author_email='ve8ng@protonmail.com'
+        author_email='ve8ng@protonmail.com',
         description=description,
         install_requires=requirements
 )
