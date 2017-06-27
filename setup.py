@@ -3,8 +3,7 @@ from setuptools import setup
 __version__ = '0.1'
 __author__  = 'Leonid Secret'
 
-requirements = 
-[
+requirements = [
         'beautifulsoup4',
         'requests'
 ]
