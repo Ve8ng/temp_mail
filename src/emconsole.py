@@ -13,7 +13,7 @@ def text(strings):
             print("Please,", strings.lower()[:-2])
             continue
         elif ("Choose" in strings) and ((que == '') or (not que.isdigit())):
-            print("Please,", strings.lower()[2:-2])
+            print("Please,", strings.lower()[:-2])
             continue
         else:
             break
@@ -21,7 +21,7 @@ def text(strings):
 
 
 def main():
-    main_site   = 'https://tempr.email/en'
+    main_site   = 'https://tempr.email/en/'
     
     local_part  = text("Enter email name: ") 
 
@@ -45,8 +45,10 @@ def main():
     payload = {'LocalPart': '{}'.format(local_part), \
                 'DomainType': 'public', \
                 'DomainId': '{}'.format(domain_name[int(domain_id)][1]), \
+                'PrivateDomain': '', \
                 'Password': '{}'.format(pw), \
-                'LoginButton': ''}
+                'LoginButton': 'Log%2Bin%2B%26%2Bcheck%2Be-mails', \
+                'CopyAndPaste': ''}
 
     session = requests.Session()
     site    = session.post(main_site,headers=headers,data=payload)
@@ -81,7 +83,6 @@ def main():
                     print("\nSorry, this message was deleted\n")
                     continue
                 message.script.decompose()
-                message.style.decompose()
                 message.a.decompose()
                 with open("/tmp/mess", "w") as f:
                     f.write(message.find('div', attrs={'id': "MessageContent"}).get_text("\n"))
