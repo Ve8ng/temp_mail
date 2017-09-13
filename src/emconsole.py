@@ -25,7 +25,7 @@ def main():
     
     local_part  = text("Enter email name: ") 
 
-    soup        = BeautifulSoup(requests.get(site).text, 'html.parser')
+    soup        = BeautifulSoup(requests.get(main_site).text, 'html.parser')
     domain_name = {i:[q.text,q['value']] for i,q in enumerate(soup.find_all('option', \
             {'class':"", 'disabled':""})) if q['value'].isdigit()}
 
@@ -49,7 +49,7 @@ def main():
                 'LoginButton': ''}
 
     session = requests.Session()
-    site    = session.post(site,headers=headers,data=payload)
+    site    = session.post(main_site,headers=headers,data=payload)
     soup    = BeautifulSoup(site.text, 'html.parser')
 
     try:
